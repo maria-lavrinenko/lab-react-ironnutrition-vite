@@ -1,6 +1,7 @@
 import React from "react";
 
 function FoodBox({ food, handleDelete }) {
+  console.log(food);
   return (
     <div>
       <p>{food.name}</p>
@@ -14,13 +15,7 @@ function FoodBox({ food, handleDelete }) {
         <b>Total Calories: {food.servings * food.calories} </b> kcal
       </p>
 
-      <button
-        onClick={() => {
-          handleDelete(food.id);
-        }}
-      >
-        Delete
-      </button>
+      <button onClick={() => handleDelete(food.id)}>Delete</button>
     </div>
   );
 }

@@ -7,6 +7,7 @@ function FoodList() {
   const [food, setFood] = useState(foodsJson);
   const handleDelete = (id) => {
     const newFoodArr = food.filter((oneFood) => oneFood.id !== id);
+
     setFood(newFoodArr);
   };
 
@@ -25,6 +26,7 @@ function FoodList() {
           <FoodBox
             key={oneFood.id}
             food={{
+              id: oneFood.id,
               name: oneFood.name,
               calories: oneFood.calories,
               image: oneFood.image,
