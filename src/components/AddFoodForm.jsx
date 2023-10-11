@@ -46,7 +46,7 @@ function AddFoodForm({ addFood }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Add Food Entry</h1>
+      <h2>Add Food Entry</h2>
       <div>
         <label htmlFor="name">Name</label>
         <input name="name" type="text" value={name} onChange={handleName} />
