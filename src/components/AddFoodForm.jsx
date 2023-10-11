@@ -5,6 +5,7 @@ function AddFoodForm({ addFood }) {
   const [image, setImage] = useState("");
   const [calories, setCalories] = useState(0);
   const [servings, setServings] = useState(0);
+  const [response, setResponse] = useState([]);
 
   const handleName = (event) => setName(event.target.value);
   const handleImage = (event) => setImage(event.target.value);
@@ -20,6 +21,16 @@ function AddFoodForm({ addFood }) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const properties = { name, calories, servings };
+    const response = [];
+    for (const key in properties) {
+      if (!properties[key] || properties[key] === "default") {
+        response.push(<p>Please submit {key} !</p>);
+        setResponse(response);
+        return;
+      }
+    }
 
     const oneFood = {
       name: name,
@@ -62,7 +73,7 @@ function AddFoodForm({ addFood }) {
           onChange={handleServings}
         />
       </div>
-
+      <div style={{ color: "red" }}>{response}</div>
       <button>Create</button>
     </form>
   );
